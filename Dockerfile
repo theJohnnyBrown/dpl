@@ -7,4 +7,5 @@ RUN gem install foreman
 ADD . /app/
 WORKDIR /app/
 
+ENV LEIN_ROOT 1
 CMD ["/usr/local/bin/foreman", "start", "-f", "/app/Procfile.dev"]
