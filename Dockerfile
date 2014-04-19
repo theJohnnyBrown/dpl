@@ -4,4 +4,5 @@ RUN chmod a+x /bin/lein
 RUN export PATH=$PATH:/bin/lein
 RUN apt-get install -y rubygems
 RUN gem install foreman
-ADD ./
+RUN mkdir /app
+ADD . /app
