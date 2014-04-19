@@ -10,4 +10,4 @@ RUN chown -R dpl /app
 
 WORKDIR /app/
 
-ENTRYPOINT ["su", "dpl", "-c", "foreman start -f /app/Procfile.dev"]
+CMD ["su", "dpl", "-c", "foreman start -f /app/Procfile.dev"]
