@@ -4,11 +4,9 @@ RUN chmod a+x /bin/lein
 RUN apt-get install -y rubygems
 RUN gem install foreman
 
-RUN mkdir /app
-ADD . /app
-
-RUN adduser --disabled-password --gecos "" --home /app --no-create-home --shell /bin/bash dpl
+RUN adduser --disabled-password --gecos "" --home /app  dpl
 RUN chown -R dpl /app
+ADD . /app
 
 USER dpl
 
