@@ -4,10 +4,8 @@ RUN chmod a+x /bin/lein
 RUN apt-get install -y rubygems
 RUN gem install foreman
 
-RUN adduser --disabled-password --gecos "" --home /app  dpl
-RUN chown -R dpl /app
+RUN adduser --disabled-password --gecos "" --home=/app  dpl
 ADD . /app
 
 USER dpl
-
 CMD foreman start -f Procfile.dev
