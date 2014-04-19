@@ -8,4 +8,5 @@ ADD . /app/
 WORKDIR /app/
 
 ENV LEIN_ROOT 1
+RUN lein upgrade
 CMD ["/usr/local/bin/foreman", "start", "-f", "/app/Procfile.dev"]
