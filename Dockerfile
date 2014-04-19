@@ -5,4 +5,4 @@ RUN apt-get install -y rubygems
 RUN gem install foreman
 
 
-CMD foreman start -f Procfile.dev
+CMD foreman start -f /app/Procfile.dev
