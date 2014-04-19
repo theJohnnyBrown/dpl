@@ -6,3 +6,5 @@ RUN apt-get install -y rubygems
 RUN gem install foreman
 RUN mkdir /app
 ADD . /app
+RUN cd /app
+RUN foreman start -f Procfile.dev
