@@ -10,4 +10,4 @@ ADD . /app
 
 USER dpl
 
-ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
+CMD foreman start -f Procfile.dev
