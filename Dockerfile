@@ -5,7 +5,7 @@ RUN apt-get install -y rubygems
 RUN gem install foreman
 
 RUN adduser --disabled-password --gecos "" --home=/app  dpl
-ADD . /app
+# ADD . /app
 
 USER dpl
 # CMD foreman start -f Procfile.dev
