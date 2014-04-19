@@ -8,4 +8,4 @@ RUN adduser --disabled-password --gecos "" --home=/app  dpl
 ADD . /app
 RUN chown -R dpl /app
 
-CMD ["sudo" "-u" "dpl" "foreman" "start" "-f" "/app/Procfile.dev"]
+ENTRYPOINT ["sudo" "-u" "dpl" "foreman" "start" "-f" "/app/Procfile.dev"]
