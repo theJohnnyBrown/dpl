@@ -32,7 +32,7 @@
                  [postgresql/postgresql "9.3-1101.jdbc4"]
                  [korma "0.3.0"]]
 
-   :jvm-opts ^:replace ["-Xmx1G" "-server"]
+   :jvm-opts ^:replace ["-Xmx1024m" "-server"]
 
   :plugins [[lein-npm "0.4.0"]
             [lein-cljsbuild "1.0.3"]
