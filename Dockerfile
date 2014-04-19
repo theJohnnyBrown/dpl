@@ -23,5 +23,7 @@ RUN apt-get install -y rubygems
 RUN gem install foreman
 
 RUN lein deps
+RUN lein cljx once
+RUN lein cljsbuild once
 
 CMD ["/usr/local/bin/foreman", "start", "-f", "/app/Procfile.dev"]
