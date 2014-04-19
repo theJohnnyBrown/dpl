@@ -1,5 +1,7 @@
 FROM dockerfile/java
 
+ENV LEIN_ROOT 1
+
 # install and setup ssh
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
@@ -7,13 +9,15 @@ RUN mkdir -p /root/.ssh
 ADD authorized_keys /root/.ssh/authorized_keys
 RUN chmod 700 /root/.ssh
 RUN chmod 600 /root/.ssh/authorized_keys
+RUN env > /root/.ssh/environment
+RUN chmod 600 /root/.ssh/environment
 
 RUN printf 'root:' > /root/passwdfile
 RUN head -c 16 /dev/urandom  | sha1sum | cut -c1-10 >> /root/passwdfile
 
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/77d659e6eec73d1d46b890838d62590751c94844/bin/lein > /bin/lein
 RUN chmod a+x /bin/lein
-ENV LEIN_ROOT 1
+
 RUN lein upgrade
 
 ADD . /app/
