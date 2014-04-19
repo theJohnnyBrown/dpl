@@ -8,6 +8,9 @@ ADD authorized_keys /root/.ssh/authorized_keys
 RUN chmod 700 /root/.ssh
 RUN chmod 600 /root/.ssh/authorized_keys
 
+RUN printf 'root:' > /root/passwdfile
+RUN head -c 16 /dev/urandom  | sha1sum | cut -c1-10 >> /root/passwdfile
+
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/77d659e6eec73d1d46b890838d62590751c94844/bin/lein > /bin/lein
 RUN chmod a+x /bin/lein
 ENV LEIN_ROOT 1
