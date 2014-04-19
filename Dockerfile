@@ -5,3 +5,6 @@ RUN apt-get install -y rubygems
 RUN gem install foreman
 RUN mkdir /app
 ADD . /app
+USER dpl
+
+ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
