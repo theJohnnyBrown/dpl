@@ -11,4 +11,4 @@ RUN chgrp -R dpl /app
 
 WORKDIR /app/
 
-CMD ["su", "dpl", "-c", "foreman start -f /app/Procfile.dev"]
+CMD ["su", "dpl", "-c", "/usr/local/bin/foreman start -f /app/Procfile.dev"]
