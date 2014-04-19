@@ -18,7 +18,7 @@
 
 #+cljs
 (def api-cfg
-   {:host "localhost"
+   {:host (if browser? (.-host js/location) "localhost")
     :port (if browser? (.-port js/location) api-port)
     :root-path "/api"})
 
