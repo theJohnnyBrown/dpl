@@ -9,7 +9,7 @@ ADD . /app
 
 RUN adduser --disabled-password --gecos "" --home /app --no-create-home --shell /bin/bash dpl
 RUN chown -R dpl /app
-# USER dpl
-# WORKDIR /app
+USER dpl
+WORKDIR /app
 
 # ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
