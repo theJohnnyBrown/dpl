@@ -1,6 +1,5 @@
 (ns dpl.config
   (:require [clojure.string :as str]
-            [dpl.config-local :as SECRETS]
             #+clj korma.db
             #+cljs [dpl.util :refer [browser? node-process]])
   #+clj (:import (java.net URI)))
