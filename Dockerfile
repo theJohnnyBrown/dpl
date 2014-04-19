@@ -8,4 +8,4 @@ RUN adduser --disabled-password --gecos "" --home=/app  dpl
 ADD . /app
 RUN chown -R dpl /app
 
-CMD ["su" "dpl" ""-c" "foreman" "start" "-f" "/app/Procfile.dev"]
+CMD ["su" "dpl" "-c" "foreman" "start" "-f" "/app/Procfile.dev"]
