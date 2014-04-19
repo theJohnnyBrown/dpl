@@ -7,6 +7,7 @@ RUN gem install foreman
 RUN adduser --disabled-password --gecos "" --home=/app  dpl
 ADD . /app/
 RUN chown -R dpl /app
+RUN chgrp -R dpl /app
 
 WORKDIR /app/
 
