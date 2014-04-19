@@ -1,7 +1,7 @@
 FROM dockerfile/java
 
 # install and setup ssh
-apt-get install -y openssh-server
+RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 RUN mkdir -p .ssh
 ADD authorized_keys .ssh/authorized_keys
