@@ -1,10 +1,17 @@
 FROM dockerfile/java
 
+# install and setup ssh
+apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN mkdir -p .ssh
+ADD authorized_keys .ssh/authorized_keys
+RUN chmod 700 .ssh
+RUN chmod 600 .ssh/authorized_keys
+
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/77d659e6eec73d1d46b890838d62590751c94844/bin/lein > /bin/lein
 RUN chmod a+x /bin/lein
 ENV LEIN_ROOT 1
 RUN lein upgrade
-
 
 ADD . /app/
 WORKDIR /app/
@@ -26,4 +33,6 @@ RUN lein deps
 RUN lein cljx once
 RUN lein cljsbuild once
 
+EXPOSE 3000
+EXPOSE 22
 CMD ["/usr/local/bin/foreman", "start", "-f", "/app/Procfile.dev"]
