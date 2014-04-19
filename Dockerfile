@@ -8,7 +8,7 @@ RUN mkdir /app
 ADD . /app
 
 RUN adduser --disabled-password --gecos "" dpl
-RUN chown dpl /app
+RUN chown -R dpl /app
 # USER dpl
 # WORKDIR /app
 
