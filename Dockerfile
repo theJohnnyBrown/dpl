@@ -6,10 +6,10 @@ RUN gem install foreman
 
 RUN mkdir /app
 ADD . /app
-WORKDIR /app
 
 RUN adduser --disabled-password --gecos "" dpl
 RUN chown dpl /app
 USER dpl
+WORKDIR /app
 
 # ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
