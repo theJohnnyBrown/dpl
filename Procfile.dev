@@ -1,0 +1,4 @@
+cljx: lein cljx auto
+cljsbuild: lein cljsbuild auto node browser-dev
+api: lein ring server-headless
+web: supervisor -w target/server.js target/server.js

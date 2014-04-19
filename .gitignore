@@ -1,0 +1,13 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+node_modules/
+resources/public/js/app-dev.js
+resources/public/js/app.js
+.env
