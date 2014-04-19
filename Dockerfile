@@ -9,7 +9,7 @@ ADD . /app
 WORKDIR /app
 
 RUN adduser --disabled-password --gecos "" dpl
-RUN chown user /app
+RUN chown dpl /app
 USER dpl
 
 ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
