@@ -4,5 +4,6 @@ RUN chmod a+x /bin/lein
 RUN apt-get install -y rubygems
 RUN gem install foreman
 
+ADD . /app
 
 CMD foreman start -f /app/Procfile.dev
