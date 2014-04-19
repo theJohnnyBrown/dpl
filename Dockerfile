@@ -3,10 +3,13 @@ RUN curl https://raw.githubusercontent.com/technomancy/leiningen/77d659e6eec73d1
 RUN chmod a+x /bin/lein
 RUN apt-get install -y rubygems
 RUN gem install foreman
+
 RUN mkdir /app
 ADD . /app
+WORKDIR /app
 
 RUN adduser --disabled-password --gecos "" dpl
+RUN chown user /app
 USER dpl
 
 ENTRYPOINT ["foreman" "start" "-f" "/app/Procfile.dev"]
