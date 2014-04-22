@@ -150,10 +150,15 @@
                                       :onfocus :onblur :placeholder])]
     [:textarea attrs (fr/render-input-val field)]))
 
-;; (def EMPTY_MAPCURSOR (om.core/MapCursor. nil {} []))
-;; (extend-type om.core/MapCursor
-;;   IEmptyableCollection
-;;   (-empty  [coll] EMPTY_MAPCURSOR))
+(def EMPTY_MAPCURSOR (om.core/MapCursor. {} {} []))
+(extend-type om.core/MapCursor
+  IEmptyableCollection
+  (-empty  [coll] EMPTY_MAPCURSOR))
+
+(def EMPTY_INDEXEDCURSOR (om.core/IndexedCursor. {} [] []))
+(extend-type om.core/MapCursor
+  IEmptyableCollection
+  (-empty  [coll] EMPTY_MAPCURSOR))
 
 ;; ^^ end form rendering stuff
 
@@ -267,12 +272,11 @@
           (str "recipe-" (:id rp) ".food-" fid ".units"))
         rpval (maybe-deref rp)
         values (apply assoc
-                       (concat [rpval]
+                       (concat [rp]
                                (flatten
                                 (for [ing (:ingredients rp)]
                                   [(keyword (food-field-name ing))
                                    (-> ing second second)]))))]
-
    {:fields (vec
              (flatten
               (concat
@@ -284,7 +288,7 @@
                 ]
                (for [ing (:ingredients rp)]
                  [
-                  {:name (food-field-name ing) :label ""}
+                  {:name (food-field-name ing) :label "" :type :text}
                   {:name (food-units-field-name ing)
                    :type :select :options unit-choices :label ""}
                   ])
