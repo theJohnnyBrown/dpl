@@ -33,7 +33,8 @@ RUN echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bash_pro
 
 RUN npm install supervisor -g
 
-RUN apt-get install -y rubygems
+apt-get install -y ruby1-9 rubygems1-9
+ln -sf /usr/bin/ruby1-9 /usr/bin/ruby
 RUN gem install foreman
 
 RUN lein deps
