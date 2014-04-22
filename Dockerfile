@@ -33,7 +33,7 @@ RUN echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bash_pro
 
 RUN npm install supervisor -g
 
-RUN apt-get install ruby1.9.1 ruby1.9.1-dev \
+RUN apt-get install -y ruby1.9.1 ruby1.9.1-dev \
   rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 \
   build-essential libopenssl-ruby1.9.1 libssl-dev zlib1g-dev
 
